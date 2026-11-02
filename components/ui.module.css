@@ -1,0 +1,29 @@
+.header { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--bg) 82%, transparent); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+.bar { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1rem; min-height: 4rem; }
+.logo { display: inline-flex; align-items: center; gap: 0.6rem; min-width: 0; font-weight: 700; text-decoration: none; white-space: nowrap; }
+.name { overflow: hidden; text-overflow: ellipsis; }
+.mark { display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 9px; background: var(--accent); color: var(--accent-ink); font-size: 0.8rem; font-weight: 800; }
+.nav { justify-self: center; min-width: 0; overflow-x: auto; scrollbar-width: none; }
+.nav ul { display: flex; gap: 0.15rem; }
+.nav a { display: block; padding: 0.4rem 0.75rem; border-radius: 999px; text-decoration: none; color: var(--ink-2); font-size: 0.9375rem; white-space: nowrap; }
+.nav a:hover, .nav a:global(.magnet) {
+  color: var(--ink);
+  background: radial-gradient(4.5rem circle at var(--mx, 50%) var(--my, 50%), var(--glow), transparent 70%), var(--surface);
+}
+
+.controls { display: flex; align-items: center; gap: 0.5rem; }
+.langs { display: flex; padding: 3px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); }
+.langs a { padding: 0.25rem 0.55rem; border-radius: 999px; font: 600 0.75rem var(--mono); text-decoration: none; color: var(--ink-3); }
+.langs a:hover, .langs a:focus-visible, .langs a[aria-current] { background: var(--accent); color: var(--accent-ink); }
+.langs:has(a:hover) a[aria-current]:not(:hover),
+.langs:has(a:focus-visible) a[aria-current]:not(:focus-visible) { background: transparent; color: var(--ink-3); }
+.theme { display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; }
+.theme:hover { border-color: var(--accent); }
+.theme svg { width: 1.05rem; height: 1.05rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.moon, :global([data-theme='light']) .sun { display: none; }
+:global([data-theme='light']) .moon { display: block; }
+
+@media (max-width: 900px) {
+  .bar { grid-template-columns: 1fr auto; row-gap: 0; padding-top: 0.5rem; }
+  .nav { grid-column: 1 / -1; grid-row: 2; justify-self: stretch; margin-inline: -0.75rem; padding-bottom: 0.4rem; }
+}
