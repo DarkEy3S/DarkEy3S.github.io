@@ -1,0 +1,24 @@
+.head { display: grid; gap: 1.1rem; justify-items: start; padding-block: clamp(2.5rem, 6vw, 4.5rem) clamp(1.5rem, 3vw, 2.5rem); }
+.back { color: var(--ink-3); text-decoration: none; font-size: 0.9375rem; margin-bottom: 0.75rem; }
+.back:hover { color: var(--accent); }
+.title { font-size: clamp(2.1rem, 5vw, 3.75rem); letter-spacing: -0.035em; max-width: 22ch; }
+.cover { max-width: 60rem; }
+.diagram { margin-top: 1.25rem; }
+
+.body { display: grid; grid-template-columns: minmax(0, 17rem) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4.5rem); padding-block: clamp(2.5rem, 5vw, 4rem) var(--section); }
+.meta { display: grid; gap: 1.5rem; align-content: start; position: sticky; top: 5.5rem; }
+.meta h2 { font-weight: 500; color: var(--ink-3); margin-bottom: 0.45rem; }
+.meta p span { color: var(--ink-3); }
+
+.content { display: grid; gap: clamp(2rem, 4vw, 3rem); align-content: start; }
+.content h2 { font-size: var(--fs-h3); margin-bottom: 1rem; }
+.text { font-size: var(--fs-lead); color: var(--ink-2); max-width: 62ch; }
+.list { display: grid; gap: 0.75rem; }
+.list li { position: relative; padding: 1rem 1.1rem 1rem 2.6rem; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--ink-2); }
+.list li::before { content: ''; position: absolute; left: 1.1rem; top: 1.55rem; width: 0.6rem; height: 0.6rem; border-radius: 50%; border: 2px solid var(--accent); }
+.results li { padding: 1.1rem 1.25rem; border-radius: 12px; background: var(--accent-soft); border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); font-weight: 600; }
+
+@media (max-width: 860px) {
+  .body { grid-template-columns: minmax(0, 1fr); }
+  .meta { position: static; padding: 1.25rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+}
